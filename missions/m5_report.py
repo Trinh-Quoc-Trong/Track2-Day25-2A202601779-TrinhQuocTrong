@@ -53,6 +53,13 @@ def run(verbose: bool = True) -> dict:
     }
 
     md = report.build_report(baseline, optimized, levers, sustainability=sust)
+    header = (
+        "**Sinh viên:** Trịnh Quốc Trọng — MSSV 2A202601779  \n"
+        "**Email:** trinhtrong2423@gmail.com  \n"
+        "**Khóa học:** AICB · Phase 2 · Track 2 · Day 25 (GPU FinOps Lab)  \n\n"
+        "---\n\n"
+    )
+    md = header + md
     out_md = os.path.join(ROOT, "outputs", "report.md")
     os.makedirs(os.path.dirname(out_md), exist_ok=True)
     with open(out_md, "w") as f:
